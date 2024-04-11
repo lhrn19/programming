@@ -1,0 +1,15 @@
+function derivada = derivadaCincoPuntosExtremo(func, x, h)
+    % func: la función de la cual se quiere calcular la derivada
+    % x: el punto en el cual se quiere calcular la derivada
+    % h: el tamaño de paso utilizado para la aproximación
+
+    % Evaluar la función en los cinco puntos necesarios
+    f_x = func(x);        % f(x)
+    f_xh = func(x + h);   % f(x + h)
+    f_x2h = func(x + 2*h); % f(x + 2h)
+    f_x3h = func(x + 3*h); % f(x + 3h)
+    f_x4h = func(x + 4*h); % f(x + 4h)
+
+    % Aplicar la fórmula de cinco puntos en el extremo
+    derivada = (-25*f_x + 48*f_xh - 36*f_x2h + 16*f_x3h - 3*f_x4h) / (12*h);
+end
